@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Topic</th>
+    </tr>
+    {% for topic in topics %}
+    <tr>
+      <td>{{ topic.name }}</td>
+	  <td>
+		<form method="POST" action="{{ url_for('rename_topic', topic_id=topic.id) }}">
+		<input type="text" name="name"/>
+		<input type="submit" value="Rename topic"/>
+		</form>
+      </td>
+	  <td>
+		<form method="POST" action="{{ url_for('delete_topic', topic_id=topic.id) }}">
+		<input type="submit" value="Delete topic"/>
+		</form>
+      </td>	  
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
