@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+  
+{% block body %}
+  <form method="POST" action="{{ url_for('new_user') }}">
+    <table>
+	<tr>
+	<td>
+	  {{ form.name.label }}
+	</td>
+	<td>
+	  {{ form.name }}
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  {{ form.email.label }}
+	</td>
+	<td>
+	  {{ form.email }}
+	</td>
+      </tr>
+	  <tr>
+	<td>
+	  {{ form.phonenumber.label }}
+	</td>
+	<td>
+	  {{ form.phonenumber }}
+	</td>
+      </tr>
+	  <tr>
+	<td>
+	  {{ form.password.label }}
+	</td>
+	<td>
+	  {{ form.password }}
+	</td>
+      </tr>
+      <tr>
+	<td colspan="3">
+	  <input type="submit" value="Create account"/>
+	</td>
+      </tr>
+  </form>
+  {% endblock %}

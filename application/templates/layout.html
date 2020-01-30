@@ -6,6 +6,15 @@
   </head>
 
   <body>
+    {% if current_user.is_authenticated %}
+    <p>
+	  Kirjautunut nimellä {{ current_user.name }}. <a href="{{ url_for('auth_logout') }}">Kirjaudu ulos</a>
+    </p>
+    {% else %}
+	<a href="{{ url_for('auth_login') }}">Kirjaudu</a>
+	<a href="{{ url_for('new_user') }}">Luo uusi käyttäjä</a>
+    {% endif %}
+	  
 	<ul>
 		<li><a href="{{ url_for('topics_index') }}">List topics</a></li>
 		<li><a href="{{ url_for('topics_form') }}">Add a topic</a></li>
