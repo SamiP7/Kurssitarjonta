@@ -17,3 +17,4 @@ Sovellus pitää yllä kuvitteellisen oppilaitoksen kurssitarjontaa. Jokainen ku
 
 https://kurssitarjonta-7.herokuapp.com/
 
+Tässä ei ole valmiiksi tarjottu mitään käyttäjää, sillä tämä on helppo luoda ohjelmassa itse. Tällä hetkellä ohjelma vaatii sähköpostin olevan sähköposti muotoa, eli jotain@jotain.jotain, joka toimii kirjautumisen keinona. Nimi ei myöskään saa olla tyhjä ja salasanan täytyy olla vähintään 5 merkkiä pitkä.

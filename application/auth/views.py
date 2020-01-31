@@ -5,7 +5,7 @@ from application import app, db
 from application.auth.models import User
 from application.auth.forms import LoginForm
 
-@app.route("/auth/login", methods = ["GET", "POST"])
+@app.route("/auth/login/", methods = ["GET", "POST"])
 def auth_login():
 	if request.method == "GET":
 		return render_template("auth/loginform.html", form = LoginForm())
@@ -22,7 +22,7 @@ def auth_login():
 	return redirect(url_for("index"))
 	
 	
-@app.route("/auth/logout")
+@app.route("/auth/logout/")
 def auth_logout():
 	logout_user()
 	return redirect(url_for("index"))
@@ -34,6 +34,9 @@ def auth_form():
 @app.route("/auth/", methods=["POST"])
 def new_user():
 	form = LoginForm(request.form)
+	
+	if not form.validate():
+		return render_template("auth/new.html", form = form)
 	
 	t = User(form.name.data, form.email.data, form.phonenumber.data, form.password.data)
 	
