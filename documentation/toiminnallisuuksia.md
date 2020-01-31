@@ -3,11 +3,13 @@
 * Käyttäjä voi lisätä uusia aiheita.
 * Käyttäjä voi muuttaa aiheen nimeä.
 * Käyttäjä voi poistaa aiheen.
+* Voi luoda uuden käyttäjän.
+* Käyttäjä voi kirjautua sisään sovellukseen.
 
 
 ### Tulevia toiminnallisuuksia
 
-* Käyttäjän ja järjestelmävalvojan luonti(järjestelmänvalvojaa ei saa normikeinoin luotua).
+* ~~Käyttäjän ja~~ järjestelmävalvojan luonti.
 * Käyttäjä voi selata kursseja aihepiirien mukaan.
 * Käyttäjä voi katsoa kurssin tietoja.
 * Käyttäjä voi varata paikan kursseille.
