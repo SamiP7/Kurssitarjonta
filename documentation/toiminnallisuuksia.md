@@ -5,13 +5,12 @@
 * Käyttäjä voi poistaa aiheen.
 * Voi luoda uuden käyttäjän.
 * Käyttäjä voi kirjautua sisään sovellukseen.
-
+* Käyttäjä voi selata kursseja aihepiirien mukaan.(Osittain toteutettu, vielä ei voi tarkasti valita aihepiiriä josta haluaa kursseja etsiä.)
+* Käyttäjä ja kuka tahansa muukin voi katsoa kurssin tietoja.
 
 ### Tulevia toiminnallisuuksia
-
+* Ei voi olla käy useampaa käyttäjää samalla sähköpostilla taikka puhelinnumerolla.
 * ~~Käyttäjän ja~~ järjestelmävalvojan luonti.
-* Käyttäjä voi selata kursseja aihepiirien mukaan.
-* Käyttäjä voi katsoa kurssin tietoja.
 * Käyttäjä voi varata paikan kursseille.
 * Varauksen yhteydessä käyttäjälle ilmoitetaan tilinumero maksulle, kyseisen laskun viitenumero ja maksun määrä.
 * Käyttäjä voi halutessaan tallentaa laskunsa.
