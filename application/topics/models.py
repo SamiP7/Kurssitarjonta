@@ -29,8 +29,7 @@ class Topic(db.Model):
 	@staticmethod
 	def find_courses_by_topic():	
 		stmt = text("SELECT * FROM Course"
-					" LEFT JOIN Topic ON Topic.id = Course.topic_id"
-					" GROUP BY Course.id")
+					" LEFT JOIN Topic ON Topic.id = Course.topic_id")
 		res = db.engine.execute(stmt)
 		
 		response = []
