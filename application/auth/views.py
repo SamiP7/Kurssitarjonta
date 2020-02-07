@@ -38,9 +38,9 @@ def new_user():
 	if not form.validate():
 		return render_template("auth/new.html", form = form)
 	
-	t = User(form.name.data, form.email.data, form.phonenumber.data, form.password.data)
+	user = User(form.name.data, form.email.data, form.phonenumber.data, form.password.data)
 	
-	db.session().add(t)
+	db.session().add(user)
 	db.session().commit()
 	
 	return redirect(url_for("index"))

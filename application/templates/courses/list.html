@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Course</th>
+	  <th>Start</th>
+	  <th>End</th>
+	  <th>Location</th>
+	  <th>Teachers</th>
+      <th>Description</th>
+	  <th>Topic</th>
+    </tr>
+    {% for course in courses %}
+    <tr>
+      <td>{{ course.name }}</td>
+	  <td>{{ course.date_start }}</td>
+	  <td>{{ course.date_end }}</td>
+	  <td>{{ course.place }}</td>
+	  <td>{{ course.teachers }}</td>
+      <td>{{ course.desc }}</td>
+	  <td>{{ course.topic.name }}</td>
+	  <td>
+		<form method="POST" action="{{ url_for('delete_course', course_id=course.id) }}">
+		<input type="submit" value="Delete course"/>
+		</form>
+      </td>	
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

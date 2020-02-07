@@ -29,13 +29,13 @@ def delete_topic(topic_id):
 def rename_topic(topic_id):
 	form = TopicForm(request.form)
 	
-	t = Topic.query.get(topic_id)
-	a = Topic(request.form.get("name"))
+	topic = Topic.query.get(topic_id)
+	topicname = Topic(form.name.data)
 	
 	if not form.validate():
 		return render_template("topics/list.html", topics = Topic.query.all(), form = form)
 		
-	t.name = a.name
+	topic.name = topicname.name
 	db.session().commit()
 
 	return redirect(url_for("topics_index"))
@@ -49,9 +49,9 @@ def topics_create():
 	if not form.validate():
 		return render_template("topics/new.html", form = form)
 	
-	t = Topic(form.name.data)
+	topic = Topic(form.name.data)
 
-	db.session().add(t)
+	db.session().add(topic)
 	db.session().commit()
   
 	return redirect(url_for("topics_index"))
