@@ -9,7 +9,7 @@
 * Käyttäjä ja kuka tahansa muukin voi katsoa kurssin tietoja.
 
 ### Tulevia toiminnallisuuksia
-* Ei voi olla käy useampaa käyttäjää samalla sähköpostilla taikka puhelinnumerolla.
+* Ei voi olla käy useampaa käyttäjää samalla sähköpostilla.
 * ~~Käyttäjän ja~~ järjestelmävalvojan luonti.
 * Käyttäjä voi varata paikan kursseille.
 * Varauksen yhteydessä käyttäjälle ilmoitetaan tilinumero maksulle, kyseisen laskun viitenumero ja maksun määrä.
