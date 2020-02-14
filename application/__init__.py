@@ -30,7 +30,7 @@ def login_required(role="ANY"):
 		@wraps(fn)
 		def decorated_view(*args, **kwargs):
 
-			if not current_user.is_authenticated():
+			if not current_user.is_authenticated:
 				return login_manager.unauthorized()
 			urole = current_user.get_urole()
 			if ( (urole != role) and (role != "ANY")):
