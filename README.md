@@ -17,4 +17,10 @@ Sovellus pitää yllä kuvitteellisen oppilaitoksen kurssitarjontaa. Jokainen ku
 
 https://kurssitarjonta-7.herokuapp.com/
 
-Tässä ei ole valmiiksi tarjottu mitään käyttäjää, sillä tämä on helppo luoda ohjelmassa itse. Tällä hetkellä ohjelma vaatii sähköpostin olevan sähköposti muotoa, eli jotain@jotain.jotain, joka toimii kirjautumisen keinona. Nimi ei myöskään saa olla tyhjä ja salasanan täytyy olla vähintään 5 merkkiä pitkä.
+Ohjelmassa on nykyään erillinen järjestelmänvalvoja käyttäjä, jonka kirjautumistunnukset ovat: 
+* sähköposti: **admin@admin.com**
+* salasana: **admin**
+
+### Käyttöohje
+
+Jos et halua käyttää tarjottua järjestelmänvalvoja käyttäjää voit helposti luoda omasi painamalla **register**appulaa. Tässä sinun pitää vain pistää sähköpostiosoite oikeassa muodossa, kuinka tahansa lyhyt nimi, salasana joka on vähintään 5 merkkiä pitkä ja puhelinnumero jonka voi pitää täysin tyhjänä. Kun sinulla on tunnukset voit kirjautua sisään painamalla **login** nappulaa. Tästä olet sitten päässyt etusivulle, jossa voit valita aiheen laatikosta, ja kun painat search:ia näet kaikki tällä hetkellä olevat kurssit kyseisestä aiheesta. Tästä voit vielä katsoa tarkemmin kurssin tietoja painamalla nappia kurssin vieressä. Näiden aikana voit helposti palata etusivulle painalla joko vasemassa yläkulmassa CourseSelection tai nappuloita hakujen yläpuolella. Sivun ylälaidassa olevat nappulat tekevät oikeaastaan juuri siinä sanotunkin. Voit myös List coursesta ilmoittautua kursseille. My coursesta pääset katsomaan kursseja joille olet ilmoittautunut. Muut metodit ovatkin sitten järjestelmänvalvojan käytössä.
