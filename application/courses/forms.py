@@ -15,7 +15,7 @@ class CourseForm(FlaskForm):
 	place = StringField("Location", [validators.Length(min=5)])
 	teachers = StringField("Teachers", [validators.Length(min=5)])
 	desc = StringField("Description")
-	topic = QuerySelectField(query_factory=all_topics, get_label='name', allow_blank=True)
+	topic = QuerySelectField(query_factory=all_topics, get_label='name', allow_blank=False)
 	
 	class Meta:
 		csrf = False

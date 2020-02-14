@@ -27,14 +27,15 @@ class Topic(db.Model):
 		return True
 		
 	@staticmethod
-	def find_courses_by_topic():	
+	def find_courses_by_topic(id):	
 		stmt = text("SELECT * FROM Course"
-					" LEFT JOIN Topic ON Topic.id = Course.topic_id")
+					" LEFT JOIN Topic ON Topic.id = Course.topic_id"
+					" WHERE Topic.id = :id").params(id=id)
 		res = db.engine.execute(stmt)
 		
 		response = []
 		for row in res:
-			response.append({"topic_id":row[9], "name":row[1]})
+			response.append({"topic_id":row[9], "name":row[1], "id":row[0]})
 			
 		return response
 	

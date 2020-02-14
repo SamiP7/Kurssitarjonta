@@ -38,8 +38,9 @@ def new_user():
 	if not form.validate():
 		return render_template("auth/new.html", form = form)
 	
-	user = User(form.name.data, form.email.data, form.phonenumber.data, form.password.data)
-	
+	user = User(form.name.data, form.email.data, form.phonenumber.data, form.password.data, "ANY")
+	if user.email == "admin@admin.com":
+		user.urole = "ADMIN"
 	db.session().add(user)
 	db.session().commit()
 	

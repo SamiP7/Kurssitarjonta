@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<p>
+ <a class="navbar-brand" href="{{ url_for('index') }} ">Return</a>
+</p>
+  
+{% if find_courses is defined %}
+<p>
+  Current courses by topic:
+</p>
+<table>
+<tr>
+  <th>Topic</th>
+  <th>Course</th>
+</tr>
+
+{% for course in find_courses %}
+<tr>
+  <td>{{course.topic_id}}</td>
+  <td>{{course.name}}</td>
+  <td>
+	<form method="POST" action="{{ url_for('course_info', course_id=course.id) }}">
+	<input type="submit" value="Info about the course"/>
+   </td>
+</tr>
+{% endfor %}
+</table>
+
+{% endif %}
+
+{% endblock %}

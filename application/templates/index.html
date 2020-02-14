@@ -2,38 +2,29 @@
 
 {% block body %}
   <p>
-    Main.
+    Main menu.
+  </p>
+  <p>
+	Search courses by their topic.
   </p>
   
-{% if find_courses is defined %}
-<p>
-  Current courses by topic:
-</p>
+
+<form action="{{ url_for('search') }}" method="POST">
 <table>
-<tr>
-  <th>Topic</th>
-  <th>Course</th>
-</tr>
-
-{% for course in find_courses %}
-<tr>
-  <td>{{course.topic_id}}</td>
-  <td>{{course.name}}</td>
-</tr>
-{% endfor %}
-</table>
-
-<!--<table><form action="" method="POST">
   <td>
-	<label>Select :</label>
+	<label>Topics:</label>
 	  <select name="option">
 {% for topic in all_topics %}
 <option value="{{ topic.id }}" SELECTED>{{ topic.name }}</option>
 {% endfor %}
 	  </select>
 	</td>
-</form></table>
-ei vielä toteutettu-->
-{% endif %}
+	<td colspan="3">
+	<input type="submit" value="Search"/>
+	</td>
+</table>
+</form>
+
+
 
 {% endblock %}

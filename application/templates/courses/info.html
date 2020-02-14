@@ -1,6 +1,9 @@
 {% extends "layout.html" %}
 
 {% block body %}
+<p>
+ <a class="navbar-brand" href="{{ url_for('index') }} ">Return to main menu</a>
+</p>
   <table>
     <tr>
       <th>Course</th>
@@ -20,17 +23,14 @@
 	  <td>{{ course.teachers }}</td>
       <td>{{ course.desc }}</td>
 	  <td>{{ course.topic.name }}</td>
-	  <td>
-		<form method="POST" action="{{ url_for('delete_course', course_id=course.id) }}">
-		<input type="submit" value="Delete course"/>
-		</form>
-      </td>
-	  <td>
+    </tr>
+	<tr>
+	<td>
 		<form method="POST" action="{{ url_for('join_course', course_id=course.id) }}">
 		<input type="submit" value="Join course"/>
 		</form>
-      </td>
-    </tr>
+     </td>
+	</tr>
     {% endfor %}
   </table>
 {% endblock %}

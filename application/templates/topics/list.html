@@ -9,8 +9,7 @@
     <tr>
       <td>{{ topic.name }}</td>
 	  <td>
-		<form method="POST" action="{{ url_for('rename_topic', topic_id=topic.id) }}">
-		<input type="text" name="name"/>
+		<form method="GET" action="{{ url_for('rename_topic_index', topic_id=topic.id) }}">
 		<input type="submit" value="Rename topic"/>
 		</form>
       </td>

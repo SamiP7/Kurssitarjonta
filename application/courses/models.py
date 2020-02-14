@@ -1,4 +1,12 @@
 from application import db
+from application.auth.models import User
+
+from sqlalchemy.sql import text
+
+coursestudent = db.Table("coursestudent",
+		db.Column("course_id", db.Integer, db.ForeignKey("course.id"), primary_key=True),
+		db.Column("account_id", db.Integer, db.ForeignKey("account.id"), primary_key=True)
+	)
 
 class Course(db.Model):
 
@@ -14,6 +22,8 @@ class Course(db.Model):
 	
 	topic_id = db.Column(db.Integer, db.ForeignKey('topic.id'), nullable=False)
 	topic = db.relationship('Topic', backref=db.backref('courses', lazy='dynamic'))
+	
+	users = db.relationship("User", secondary=coursestudent, backref="courses")
 	
 	def __init__(self, name, date_start, date_end, place, teachers, desc, topic):
 		self.name = name
@@ -35,3 +45,19 @@ class Course(db.Model):
 
 	def is_authenticated(self):
 		return True
+		
+		
+		
+	@staticmethod
+	def find_my_courses(id):
+		stmt = text("SELECT * FROM Course"
+				" LEFT JOIN CourseStudent ON CourseStudent.course_id = Course.id"
+				" LEFT JOIN Account ON Account.id = CourseStudent.account_id"
+				" WHERE Account.id = :id").params(id=id)
+		res = db.engine.execute(stmt)
+
+		response = []
+		for row in res:
+			response.append({"name":row[1], "start":row[2], "end":row[3], "place":row[4], "teachers":row[5], "desc":row[6]})
+			
+		return response

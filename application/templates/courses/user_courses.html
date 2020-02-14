@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if my_courses is defined %}
+<p>
+  Current courses:
+</p>
+
+<ul>
+  {% for course in my_courses %}
+  <li>
+    {{course.name}} {{course.start}} {{course.end}} {{course.start}} {{course.place}} {{course.teachers}} {{course.desc}}
+  </li>
+  {% endfor %}
+</ul>
+
+{% endif %}
+
+{% endblock %}
