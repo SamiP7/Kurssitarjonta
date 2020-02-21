@@ -26,14 +26,14 @@ def create_reservation(course_id):
 	
 	if not form.validate():
 		return render_template("reservations/new.html", form=form, course=Course.query.get(course_id))
+	if (Reservation.query.filter_by(course_id=course_id).filter_by(account_id=current_user.id).first() is None):
+		r = Reservation(form.accountnumber.data, form.indexnumber.data, form.amount.data)
+		r.haspaid = False
+		r.account_id = current_user.id
+		r.course_id = course_id
 	
-	r = Reservation(form.accountnumber.data, form.indexnumber.data, form.amount.data)
-	r.haspaid = False
-	r.account_id = current_user.id
-	r.course_id = course_id
-	
-	db.session().add(r)
-	db.session().commit()
+		db.session().add(r)
+		db.session().commit()
 	
 	return redirect(url_for("reservations_index"))
 	

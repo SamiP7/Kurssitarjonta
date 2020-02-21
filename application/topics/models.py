@@ -29,7 +29,7 @@ class Topic(db.Model):
 	@staticmethod
 	def find_courses_by_topic(id):	
 		stmt = text("SELECT * FROM Course"
-					" LEFT JOIN Topic ON Topic.id = Course.topic_id"
+					" JOIN Topic ON Topic.id = Course.topic_id"
 					" WHERE Topic.id = :id").params(id=id)
 		res = db.engine.execute(stmt)
 		

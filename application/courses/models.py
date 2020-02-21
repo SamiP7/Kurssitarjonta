@@ -62,3 +62,29 @@ class Course(db.Model):
 			response.append({"id":row[0], "name":row[1], "start":row[2], "end":row[3], "place":row[4], "teachers":row[5], "desc":row[6]})
 			
 		return response
+		
+	@staticmethod
+	def all_courses():
+		stmt = text("SELECT DISTINCT * FROM Course")
+		res = db.engine.execute(stmt)
+		
+		response = []
+		for row in res:
+			response.append({"id":row[0], "name":row[1]})
+			
+		return response
+		
+	@staticmethod
+	def find_student_by_course(id):
+		stmt = text("SELECT * FROM Course"
+				" JOIN CourseStudent ON CourseStudent.course_id = Course.id"
+				" JOIN Account ON Account.id = CourseStudent.account_id"
+				" WHERE Course.id = :id").params(id=id)
+				
+		res = db.engine.execute(stmt)
+		response = []
+		
+		for row in res:
+			response.append({"cid":row[0], "sid":row[9], "name":row[11], "email":row[12], "role":row[15]})
+
+		return response

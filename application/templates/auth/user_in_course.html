@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<p>
+ <a class="navbar-brand" href="{{ url_for('search_students_options') }} ">Return</a>
+</p>
+{% if students_in_course is defined %}
+<p>
+  Current students in course:
+</p>
+<table>
+<tr>
+  <th>Name</th>
+  <th>Email</th>
+  <th>Role</th>
+</tr>
+
+{% for student in students_in_course %}
+<tr>
+  <td>{{student.name}}</td>
+  <td>{{student.email}}</td>
+  <td>{{student.role}}</td>
+  <td>
+    <form method="POST" action="{{ url_for('delete_attendance_admin', course_id=student.cid, account_id=student.sid) }}">
+	<input type="submit" value="Delete attendance"/>
+	</form>
+   </td>
+</tr>
+{% endfor %}
+</table>
+
+{% endif %}
+
+{% endblock %}
