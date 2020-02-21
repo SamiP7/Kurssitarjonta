@@ -7,11 +7,15 @@
 * Käyttäjä ja kuka tahansa muukin voi katsoa kurssin tietoja.
 * Käyttäjä voi liittyä kursseille ja katsoa kaikki kurssit joille hän on liittynyt.
 * Ei voi olla käy useampaa käyttäjää samalla sähköpostilla.
-
-### Tulevia toiminnallisuuksia
 * Käyttäjä voi varata paikan kursseille.
-* Varauksen yhteydessä käyttäjälle ilmoitetaan tilinumero maksulle, kyseisen laskun viitenumero ja maksun määrä.
-* Käyttäjä voi halutessaan tallentaa laskunsa.
 * Käyttäjä voi poistaa varauksensa kurssille.
 * Järjestelmänvalvoja voi poistaa varauksen käyttäjältä.
 * Järjestelmänvalvoja voi selata kursseille osallistuneita käyttäjiä.
+
+### Tulevia toiminnallisuuksia
+
+* Varauksen yhteydessä käyttäjälle ilmoitetaan tilinumero maksulle, kyseisen laskun viitenumero ja maksun määrä(Tällä hetkellä nämä syötetään itse).
+* Käyttäjä voi halutessaan tallentaa laskunsa(Tallentuu itsekseen tällä hetkellä).
+
+
+
