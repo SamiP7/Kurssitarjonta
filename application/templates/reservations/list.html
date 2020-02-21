@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if reservations is defined %}
+<p>
+  Current reservations:
+</p>
+  <table>
+    <tr>
+	  <th>Course</th>
+	  <th>Start</th>
+	  <th>End</th>
+	  <th>Location</th>
+	  <th>Teachers</th>
+      <th>Description</th>
+	  <th>Accountnumber</th>
+	  <th>Indexnumber</th>
+	  <th>Amount</th>
+	  <th>Paid (0=not paid yet)</th>
+	</tr>
+  {% for reservation in reservations %}
+  <tr>
+    <td>{{ reservation.cname }}</td>
+	<td>{{ reservation.cstart }}</td>
+	<td>{{ reservation.cend }}</td>
+	<td>{{ reservation.cplace }}</td>
+	<td>{{ reservation.cteachers }}</td>
+	<td>{{ reservation.cdesc }}</td>
+	<td>{{ reservation.accountnumber }}</td>
+	<td>{{ reservation.indexnumber }}</td>
+	<td>{{ reservation.amount }}</td>
+	<td>{{ reservation.haspaid }}</td>
+	<td>
+	  <form method="POST" action="{{ url_for('reservation_paid', reservation_id=reservation.id) }}">
+	    <input type="submit" value="Pay"/>
+	  </form>
+    </td>
+	<td>
+	  <form method="POST" action="{{ url_for('delete_reservation', reservation_id=reservation.id) }}">
+	    <input type="submit" value="Delete reservation"/>
+	  </form>
+    </td>
+  </tr>
+  {% endfor %}
+  </table>
+{% endif %}
+
+{% endblock %}

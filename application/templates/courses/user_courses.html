@@ -11,6 +11,11 @@
   {% for course in my_courses %}
   <li>
     {{course.name}} {{course.start}} {{course.end}} {{course.start}} {{course.place}} {{course.teachers}} {{course.desc}}
+	<td>
+		<form method="POST" action="{{ url_for('delete_attendance', course_id=course.id) }}">
+		<input type="submit" value="Leave course"/>
+		</form>
+    </td>
   </li>
   {% endfor %}
 </ul>

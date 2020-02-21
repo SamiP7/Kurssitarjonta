@@ -1,0 +1,57 @@
+  {% extends "layout.html" %}
+
+  {% block body %}
+  <form method="POST" action="{{ url_for('create_reservation', course_id=course.id) }}">
+    <table>
+      <tr>
+	<td>
+	  {{ form.accountnumber.label }}
+	</td>
+	<td>
+	  {{ form.accountnumber}}
+	</td>
+	<td>
+	  <ul>
+	    {% for error in form.accountnumber.errors %}
+	    <li>{{ error }}</li>
+	    {% endfor %}
+	  </ul>
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  {{ form.indexnumber.label }}
+	</td>
+	<td>
+	  {{ form.indexnumber }}
+	</td>
+	<td>
+	  <ul>
+	    {% for error in form.indexnumber.errors %}
+	    <li>{{ error }}</li>
+	    {% endfor %}
+	  </ul>
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  {{ form.amount.label }}
+	</td>
+	<td>
+	  {{ form.amount }}
+	</td>
+	<td>
+	  <ul>
+	    {% for error in form.amount.errors %}
+	    <li>{{ error }}</li>
+	    {% endfor %}
+	  </ul>
+	</td>
+      </tr>
+	  <tr>
+	<td colspan="3">
+	  <input type="submit" value="Reserve a spot"/>
+	</td>
+      </tr>
+  </form>
+  {% endblock %}

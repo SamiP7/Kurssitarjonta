@@ -26,7 +26,7 @@
     </tr>
 	<tr>
 	<td>
-		<form method="POST" action="{{ url_for('join_course', course_id=course.id) }}">
+		<form method="GET" action="{{ url_for('reservations_form', course_id=course.id) }}">
 		<input type="submit" value="Join course"/>
 		</form>
      </td>

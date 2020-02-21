@@ -50,6 +50,9 @@ from application.auth import views
 from application.courses import models
 from application.courses import views
 
+from application.reservations import models
+from application.reservations import views
+
 from application.auth.models import User
 
 @login_manager.user_loader

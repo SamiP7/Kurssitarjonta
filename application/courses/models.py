@@ -24,6 +24,7 @@ class Course(db.Model):
 	topic = db.relationship('Topic', backref=db.backref('courses', lazy='dynamic'))
 	
 	users = db.relationship("User", secondary=coursestudent, backref="courses")
+	reservations = db.relationship("Reservation", backref='course', lazy=True)
 	
 	def __init__(self, name, date_start, date_end, place, teachers, desc, topic):
 		self.name = name
@@ -58,6 +59,6 @@ class Course(db.Model):
 
 		response = []
 		for row in res:
-			response.append({"name":row[1], "start":row[2], "end":row[3], "place":row[4], "teachers":row[5], "desc":row[6]})
+			response.append({"id":row[0], "name":row[1], "start":row[2], "end":row[3], "place":row[4], "teachers":row[5], "desc":row[6]})
 			
 		return response

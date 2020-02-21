@@ -10,6 +10,8 @@ class User(db.Model):
 	phonenumber = db.Column(db.String(144), nullable=False)
 	password = db.Column(db.String(144), nullable=False)
 	urole = db.Column(db.String(80))
+	
+	reservations = db.relationship("Reservation", backref='account', lazy=True)
 
 	def __init__(self, name, email, phonenumber, password, urole):
 		self.name = name

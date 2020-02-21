@@ -3,25 +3,27 @@ from flask_login import login_required, current_user
 
 from application import app, db, login_required
 from application.courses.models import Course
+from application.reservations.models import Reservation
 from application.topics import models
 from application.auth import models
 from application.courses.forms import CourseForm
+from application.reservations import views
+from application.reservations.forms import ReservationForm
 
 @app.route("/courses/user_course/")
 @login_required(role="ANY")
 def my_courses():
 	return render_template("courses/user_courses.html", my_courses=Course.find_my_courses(current_user.id))
-
-@app.route("/courses/<course_id>/join", methods=["POST"])
+	
+@app.route("/courses/user_course/<course_id>", methods=["POST"])
 @login_required(role="ANY")
-def join_course(course_id):
+def delete_attendance(course_id):
+	Reservation.query.filter_by(course_id=course_id).filter_by(account_id=current_user.id).delete()
 	
 	course = Course.query.filter_by(id=course_id).first()
-	account = current_user
-	course.users.append(account)
-	
+	course.users.clear()
 	db.session().commit()
-	return redirect(url_for("courses_index"))
+	return render_template("courses/user_courses.html", my_courses=Course.find_my_courses(current_user.id))
 
 @app.route("/courses/<course_id>/info", methods=["POST"])
 def course_info(course_id):
