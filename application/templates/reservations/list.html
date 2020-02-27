@@ -2,7 +2,7 @@
 
 {% block body %}
 
-{% if reservations is defined %}
+{% if reservations[0] is defined %}
 <p>
   Current reservations:
 </p>
@@ -45,5 +45,12 @@
   {% endfor %}
   </table>
 {% endif %}
+
+{% if reservations[0] is not defined %}
+  <p>
+    You currently have no reservations.
+  </p>
+{% endif %}
+  
 
 {% endblock %}

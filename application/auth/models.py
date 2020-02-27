@@ -35,7 +35,7 @@ class User(db.Model):
 	def get_urole(self):
 		return self.urole
 	
-class Unique(object):
+class UniqueValidator(object):
 	def __init__(self, model, field, message=None):
 		self.model = model
 		self.field = field

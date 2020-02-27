@@ -10,11 +10,11 @@ def all_topics():
 	
 class CourseForm(FlaskForm):
 	name = StringField("Course name", [validators.Length(min=5)])
-	datestart = DateField("Course start", [validators.DataRequired("Start date is required")], format="%Y-%m-%d")
-	dateend = DateField("Course end", [validators.DataRequired("End date is required")], format="%Y-%m-%d")
+	datestart = DateField("Course start (yyyy-mm-dd)", [validators.DataRequired("Start date is required")], format="%Y-%m-%d")
+	dateend = DateField("Course end (yyyy-mm-dd)", [validators.DataRequired("End date is required")], format="%Y-%m-%d")
 	place = StringField("Location", [validators.Length(min=5)])
 	teachers = StringField("Teachers", [validators.Length(min=5)])
-	desc = StringField("Description")
+	desc = StringField("Description (optional)")
 	topic = QuerySelectField(query_factory=all_topics, get_label='name', allow_blank=False)
 	
 	class Meta:

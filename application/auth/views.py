@@ -39,7 +39,7 @@ def new_user():
 		return render_template("auth/new.html", form = form)
 	
 	user = User(form.name.data, form.email.data, form.phonenumber.data, form.password.data, "ANY")
-	if user.email == "admin@admin.com":
+	if form.admin.data:
 		user.urole = "ADMIN"
 	db.session().add(user)
 	db.session().commit()

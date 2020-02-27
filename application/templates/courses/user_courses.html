@@ -2,15 +2,20 @@
 
 {% block body %}
 
-{% if my_courses is defined %}
+{% if my_courses[0] is defined %}
+  {% if my_courses[0].reservations is defined %}
+    <p>
+	 You have a total of {{my_courses[0].reservations}} reservations, which need to be paid for.
+    </p>
+    {% endif %}
+
 <p>
   Current courses:
 </p>
-
 <ul>
   {% for course in my_courses %}
   <li>
-    {{course.name}} {{course.start}} {{course.end}} {{course.start}} {{course.place}} {{course.teachers}} {{course.desc}}
+    {{course.name}} {{course.start}} {{course.end}} {{course.place}} {{course.teachers}} {{course.desc}}
 	<td>
 		<form method="POST" action="{{ url_for('delete_attendance', course_id=course.id) }}">
 		<input type="submit" value="Leave course"/>
@@ -21,5 +26,10 @@
 </ul>
 
 {% endif %}
+{% if my_courses[0] is not defined %}
+  <p>
+	You are not currently registered to any classes.
+  </p>
+  {% endif %}
 
 {% endblock %}
