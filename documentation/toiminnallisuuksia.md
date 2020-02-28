@@ -14,14 +14,14 @@
 * Kurssia ei voi poistaa, jos siinä on varauksia tai osallistujia.
 * Aihetta ei voi poistaa, jos siihen liittyy kursseja.
 
-### Toteuttamatta jääneet toiminnallisuudeet(sulkeissa vastaavuus jos on)
+### Toteuttamatta jääneet toiminnallisuudet(sulkeissa vastaavuus jos on)
 
 * Varauksen yhteydessä käyttäjälle ilmoitetaan tilinumero maksulle, kyseisen laskun viitenumero ja maksun määrä(Tällä hetkellä nämä syötetään itse).
 * Käyttäjä voi halutessaan tallentaa laskunsa(Tallentuu sovelluksessa itsekseen).
 * Virheviestien näyttäminen esim. tapauksissa joissa käyttäjä yrittää poistaa aiheen johon liittyy kursseja.
 * Varmistus siitä, ettei kurssia luodessa ole alkupäivämäärä, loppupäivämäärää myöhemmin.
 * Kurssien ja käyttäjien tietojen muokkaus.
-
+* Layoutin muokkaus käyttäjäystävällisemmäksi.
 
 ### Tietorakenne
 
