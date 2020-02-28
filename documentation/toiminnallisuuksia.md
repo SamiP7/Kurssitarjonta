@@ -91,31 +91,32 @@ CREATE TABLE Account (
   
   Kurssien haku aiheiden mukaan:
   
-  `SELECT * FROM Course
-   JOIN Topic ON Topic.id = Course.topic_id
-   WHERE Topic.id = "annettu parametri";`
+    SELECT * FROM Course
+    JOIN Topic ON Topic.id = Course.topic_id
+    WHERE Topic.id = "annettu parametri";
    
    
-   Oppilaiden haku kursseista:
+  Oppilaiden haku kursseista:
    
-   `SELECT * FROM Course
+    SELECT * FROM Course
     JOIN CourseStudent ON CourseStudent.course_id = Course.id"
-		JOIN Account ON Account.id = CourseStudent.account_id"
-		WHERE Course.id = "annettu parametri";`
+    JOIN Account ON Account.id = CourseStudent.account_id"
+    WHERE Course.id = "annettu parametri";
    
    
-   Käyttäjällä jolla on varauksia kursseihin, joita hän ei vielä ole maksanut:
+  Käyttäjällä jolla on varauksia kursseihin, joita hän ei vielä ole maksanut:
    
-   `SELECT Count(Reservation.id) FROM Course
-	  LEFT JOIN CourseStudent ON CourseStudent.course_id = Course.id
-		LEFT JOIN Account ON Account.id = CourseStudent.account_id
-		LEFT JOIN Reservation ON Account.id = Reservation.account_id
-		WHERE Account.id = "nykyisen käyttäjän id" AND Reservation.haspaid = false
-		GROUP BY CourseStudent.course_id;`
+     SELECT Count(Reservation.id) FROM Course
+     LEFT JOIN CourseStudent ON CourseStudent.course_id = Course.id
+     LEFT JOIN Account ON Account.id = CourseStudent.account_id
+     LEFT JOIN Reservation ON Account.id = Reservation.account_id
+     WHERE Account.id = "nykyisen käyttäjän id" AND Reservation.haspaid = false
+     GROUP BY CourseStudent.course_id;
     
     
-   Uuden käyttäjän luonti(oletuksena, ettei annettu sähköposti ole jo tietokannassa):
+  Uuden käyttäjän luonti(oletuksena, ettei annettu sähköposti ole jo tietokannassa):
     
-    `INSERT INTO Account (name, email, phonenumber, password, urole)
-     VALUES ("- nimi", "- sähköposti", "- puhelinnumero", "- salasana", "lomakkeesta saatu rooli");'
-   Kuten nähdään, tapahtuu pääavaimen lisäys automaattisesti.
+    INSERT INTO Account (name, email, phonenumber, password, urole)
+    VALUES ("- nimi", "- sähköposti", "- puhelinnumero", "- salasana", "lomakkeesta saatu rooli");
+     
+  Kuten nähdään, tapahtuu pääavaimen lisäys automaattisesti.
