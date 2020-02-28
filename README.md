@@ -10,7 +10,7 @@ Sovellus pitää yllä kuvitteellisen oppilaitoksen kurssitarjontaa. Jokainen ku
 
 [**Sovellukseen toteutettu tietokanta**](https://github.com/SamiP7/Kurssitarjonta/blob/master/documentation/pictures/toteutettu_tietokanta.png)
 
-### Käyttötapaukset
+### Käyttötapaukset, create table-lauseet ja sql-kyselyitä
 
 [Löytyy painamalla tätä linkkiä](https://github.com/SamiP7/Kurssitarjonta/blob/master/documentation/toiminnallisuuksia.md)
 
