@@ -2,6 +2,7 @@ from flask import redirect, render_template, request, url_for
 
 from application import app, db, login_required
 from application.topics.models import Topic
+from application.courses.models import Course
 from application.topics.forms import TopicForm
 
 @app.route("/topics/", methods=["GET"])
@@ -16,9 +17,9 @@ def topics_form():
 @app.route("/topics/<topic_id>/", methods=["POST"])
 @login_required(role="ADMIN")
 def delete_topic(topic_id):
-	
-	Topic.query.filter_by(id=topic_id).delete()
-	db.session().commit()
+	if (Course.query.filter_by(topic_id=topic_id).first() is None):
+		Topic.query.filter_by(id=topic_id).delete()
+		db.session().commit()
 	
 	return render_template("topics/list.html", topics = Topic.query.all())
 	

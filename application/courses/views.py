@@ -60,9 +60,10 @@ def courses_index():
 @app.route("/courses/<course_id>/", methods=["POST"])
 @login_required(role="ADMIN")
 def delete_course(course_id):
-
-	Course.query.filter_by(id=course_id).delete()
-	db.session().commit()
+	if (Reservation.query.filter_by(course_id=course_id).first() is None and
+		Course.query.filter_by(id=course_id).filter(Course.users.any()).first() is None):
+		Course.query.filter_by(id=course_id).delete()
+		db.session().commit()
 	
 	return redirect(url_for("courses_index"))
 
