@@ -51,24 +51,31 @@ class Course(db.Model):
 		
 	@staticmethod
 	def find_my_courses(id):
-		stmt = text("SELECT *, Count(Reservation.id) FROM Course"
+		stmt = text("SELECT * FROM Course"
 				" LEFT JOIN CourseStudent ON CourseStudent.course_id = Course.id"
 				" LEFT JOIN Account ON Account.id = CourseStudent.account_id"
-				" LEFT JOIN Reservation ON Reservation.account_id = Account.id"
-				" WHERE Account.id = :id"
-				" GROUP BY Course.id").params(id=id)
+				" WHERE Account.id = :id").params(id=id)
 		res = db.engine.execute(stmt)
 
 		response = []
-		r = 0
+
 		for row in res:
 			response.append({"id":row[0], "name":row[1], "start":row[2], "end":row[3], "place":row[4], "teachers":row[5], "desc":row[6]})
-			r = row[23]
 		
-		r = r - len(response)
-		if r > 0:
-			for i in response:
-				i["reservations"] = r
+		stmt = text("SELECT Count(Reservation.id) FROM Course"
+				" LEFT JOIN CourseStudent ON CourseStudent.course_id = Course.id"
+				" LEFT JOIN Account ON Account.id = CourseStudent.account_id"
+				" LEFT JOIN Reservation ON Account.id = Reservation.account_id"
+				" WHERE Account.id = :id AND Reservation.haspaid = 0"
+				" GROUP BY CourseStudent.course_id").params(id=id)
+		res = db.engine.execute(stmt)
+
+		for row in res:
+			if (row[0] > 0 and row[0] is not None):
+				for i in response:
+					i["reservations"] = row[0]
+		
+		
 			
 		return response
 		
