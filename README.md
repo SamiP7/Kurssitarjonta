@@ -8,6 +8,8 @@ Sovellus pitää yllä kuvitteellisen oppilaitoksen kurssitarjontaa. Jokainen ku
 
 ![](https://github.com/SamiP7/Kurssitarjonta/blob/master/documentation/pictures/kaavio.png)
 
+[Sovellukseen toteutettu tietokanta](https://github.com/SamiP7/Kurssitarjonta/blob/master/documentation/pictures/toteutettu_tietokanta.png)
+
 ### Käyttötapaukset
 
 [Löytyy painamalla tätä linkkiä](https://github.com/SamiP7/Kurssitarjonta/blob/master/documentation/toiminnallisuuksia.md)
