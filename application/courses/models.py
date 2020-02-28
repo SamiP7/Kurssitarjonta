@@ -66,7 +66,7 @@ class Course(db.Model):
 				" LEFT JOIN CourseStudent ON CourseStudent.course_id = Course.id"
 				" LEFT JOIN Account ON Account.id = CourseStudent.account_id"
 				" LEFT JOIN Reservation ON Account.id = Reservation.account_id"
-				" WHERE Account.id = :id AND Reservation.haspaid = 0"
+				" WHERE Account.id = :id AND Reservation.haspaid = false"
 				" GROUP BY CourseStudent.course_id").params(id=id)
 		res = db.engine.execute(stmt)
 
