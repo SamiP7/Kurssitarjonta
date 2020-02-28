@@ -12,10 +12,12 @@
 * Järjestelmänvalvoja voi poistaa varauksen käyttäjältä.
 * Järjestelmänvalvoja voi selata kursseille osallistuneita käyttäjiä.
 
-### Tulevia toiminnallisuuksia
+### Toteuttamatta jääneet toiminnallisuudeet(sulkeissa vastaavuus)
 
 * Varauksen yhteydessä käyttäjälle ilmoitetaan tilinumero maksulle, kyseisen laskun viitenumero ja maksun määrä(Tällä hetkellä nämä syötetään itse).
-* Käyttäjä voi halutessaan tallentaa laskunsa(Tallentuu itsekseen tällä hetkellä).
+* Käyttäjä voi halutessaan tallentaa laskunsa(Tallentuu sovelluksessa itsekseen).
 
 
+
+### Toiminnalisuuksiin liittyvät sql kyselyt
 
